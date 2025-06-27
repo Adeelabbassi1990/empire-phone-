@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empire Phone Repair | Premium Device Repair in Los Angeles</title>
+    <style>
+        :root {
+            --primary: #000;
+            --secondary: #fff;
+            --accent: #FFD700;
+            --light-gray: #f5f5f7;
+            --dark-gray: #86868b;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+        }
+        body {
+            background-color: var(--secondary);
+            color: var(--primary);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 30px;
+        }
+        nav ul li a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+        nav ul li a:hover {
+            opacity: 0.7;
+        }
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--secondary);
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+        }
+        .hero p {
+            font-size: 28px;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        .btn {
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .features {
+            padding: 100px 5%;
+            background-color: var(--light-gray);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 60px;
+            font-weight: 600;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--secondary);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        .feature-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .services {
+            padding: 100px 5%;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        .service-image {
+            height: 200px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: var(--accent);
+        }
+        .service-content {
+            padding: 30px;
+        }
+        .service-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        .service-content ul {
+            list-style-type: none;
+            margin-top: 15px;
+        }
+        .service-content ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .locations {
+            padding: 100px 5%;
+            background-color: var(--light-gray);
+        }
+        .locations-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .location-card {
+            background: var(--secondary);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        .location-map {
+            height: 250px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-gray);
+        }
+        .location-info {
+            padding: 30px;
+        }
+        .location-info h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .location-info p {
+            margin: 10px 0;
+            color: var(--dark-gray);
+        }
+        .testimonials {
+            padding: 100px 5%;
+            text-align: center;
+        }
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .testimonial {
+            padding: 40px;
+            background: var(--secondary);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin: 40px 0;
+        }
+        .testimonial p {
+            font-size: 20px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .testimonial .author {
+            font-weight: 600;
+        }
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 60px 5% 30px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .footer-column ul {
+            list-style: none;
+        }
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        .footer-column ul li a {
+            color: #86868b;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-column ul li a:hover {
+            color: #fff;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            color: #86868b;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+            .hero p {
+                font-size: 20px;
+            }
+            nav ul {
+                display: none;
+            }
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="empire-logo.jpg" alt="Empire Phone Repair Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#locations">Locations</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Premium Device Repair Experience</h1>
+        <p>Expert technicians. Same-day service. Lifetime warranty. Your trusted tech destination in Los Angeles.</p>
+        <div class="cta-buttons">
+            <a href="#services" class="btn btn-primary">View Services</a>
+            <a href="#contact" class="btn btn-secondary">Contact Us</a>
+        </div>
+    </section>
+    <section class="features">
+        <h2 class="section-title">Why Choose Empire Phone Repair?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Same-Day Service</h3>
+                <p>Most repairs completed in under an hour. We value your time.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔧</div>
+                <h3>Expert Technicians</h3>
+                <p>Certified professionals trained on all major device brands.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>3-Month Warranty</h3>
+                <p>We stand behind all our repairs with a comprehensive warranty.</p>
+            </div>
+        </div>
+    </section>
+    <section id="services" class="services">
+        <h2 class="section-title">Our Premium Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-image">📱</div>
+                <div class="service-content">
+                    <h3>Screen Replacement</h3>
+                    <p>Restore your device to pristine condition with our premium screen replacements.</p>
+                    <ul>
+                        <li>30-45 minutes</li>
+                        <li>3-month warranty</li>
+                        <li>All major brands</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image">🔋</div>
+                <div class="service-content">
+                    <h3>Battery Replacement</h3>
+                    <p>Revive your device with our high-quality battery replacements.</p>
+                    <ul>
+                        <li>20-30 minutes</li>
+                        <li>3-month warranty</li>
+                        <li>Improved performance</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image">💧</div>
+                <div class="service-content">
+                    <h3>Water Damage Repair</h3>
+                    <p>Expert diagnostics and repair for liquid-damaged devices.</p>
+                    <ul>
+                        <li>24-48 hours</li>
+                        <li>Advanced diagnostics</li>
+                        <li>Data recovery</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="locations" class="locations">
+        <h2 class="section-title">Our Locations</h2>
+        <div class="locations-container">
+            <div class="location-card">
+                <div class="location-map">Lawndale Location Map</div>
+                <div class="location-info">
+                    <h3>Lawndale</h3>
+                    <p>4727 Artesia Blvd, Suite 107</p>
+                    <p>Lawndale, CA 90260</p>
+                    <p>(310) 892-6777</p>
+                    <p><strong>Hours:</strong></p>
+                    <p>Sunday: 10am - 4pm</p>
+                    <p>Monday-Saturday: 10am - 7pm</p>
+                </div>
+            </div>
+            <div class="location-card">
+                <div class="location-map">Hawthorne Location Map</div>
+                <div class="location-info">
+                    <h3>Hawthorne</h3>
+                    <p>3920 Rosecrans Ave</p>
+                    <p>Hawthorne, CA 90250</p>
+                    <p>(310) 341-9456</p>
+                    <p><strong>Hours:</strong></p>
+                    <p>Sunday: 10am - 4pm</p>
+                    <p>Monday-Saturday: 10am - 7pm</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="testimonials" class="testimonials">
+        <h2 class="section-title">Customer Experiences</h2>
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <p>"Empire Phone Repair is the Apple Store of independent shops—clean, professional, and super fast! My phone was fixed in under an hour."</p>
+                <div class="author">- Emily T.</div>
+            </div>
+            <div class="testimonial">
+                <p>"I've tried many places, but Empire is the only one I trust. The staff is knowledgeable and the service is top-notch. The 3-month warranty gives me peace of mind."</p>
+                <div class="author">- Carlos R.</div>
+            </div>
+            <div class="testimonial">
+                <p>"Adeel and Mohamed make every visit feel like VIP service. They explained everything clearly and had my phone fixed faster than promised. Highly recommend!"</p>
+                <div class="author">- Priya S.</div>
+            </div>
+        </div>
+    </section>
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Empire Phone Repair</h3>
+                <p>Premium device repair services in Los Angeles. Expert technicians, same-day service, and peace of mind with our 3-month warranty.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Lawndale: (310) 892-6777</li>
+                    <li>Hawthorne: (310) 341-9456</li>
+                    <li>info@empirephonerepair.com</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Empire Phone Repair. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
